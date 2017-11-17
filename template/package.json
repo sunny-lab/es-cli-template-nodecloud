@@ -1,0 +1,49 @@
+{
+  "name": "{{context.basic.name}}",
+  "version": "0.1.0",
+  "description": "",
+  {% if context.npm.private == true %}
+  "private": true,
+  {% endif %}
+  "repository": {
+    "type": "git",
+    "url": "https://code.aliyun.com/YanRongTech/cloud-service.git"
+  },
+  "author": "{{context.basic.author}}",
+  "license": "{{ context.npm.license }}",
+  "scripts": {
+    "build": "babel src/ -d build/",
+    "dev": "nodemon src/app.js --config ./nodemon-app.json",
+    "dist": "npm install && babel src/ -d build/",
+    "test": ""
+  },
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^2.5.0",
+    "koa-router": "^7.1.1",
+    "lodash": "^4.17.4",
+    "winston": "^2.3.1",
+    "mkdirp": "^0.5.1",
+    "babel-polyfill": "^6.23.0",
+    "koa-consul": "0.0.2",
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "nodemon": "^1.11.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
+  }
+}
