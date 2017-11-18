@@ -4,7 +4,7 @@ module.exports = {
     web: {
         serviceId: null,
         serviceName: '{{ meta.serviceName }}',
-        port: {{ meta.port }}
+        port: {{ meta.servicePort }}
     },
     consul: {
         host: '{{ meta.consulHost }}',
