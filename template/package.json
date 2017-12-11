@@ -5,10 +5,12 @@
   {% if context.npm.private == true %}
   "private": true,
   {% endif %}
+  {% if context.git.hasRepo == true %}
   "repository": {
     "type": "git",
-    "url": "https://code.aliyun.com/YanRongTech/cloud-service.git"
+    "url": "{{ context.git.gitRepo }}"
   },
+  {% endif %}
   "author": "{{context.basic.author}}",
   "license": "{{ context.npm.license }}",
   "scripts": {
